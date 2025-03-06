@@ -1,0 +1,17 @@
+---
+import Variant from "../components/Variant.astro";
+
+let variantHtml = "";
+
+await fetch("http://localhost:5236/api/variant")
+  .then((res) => res.json())
+  .then((data) => {
+    variantHtml = data.variant.html;
+  });
+---
+
+<div class="rw_v8">
+  <div id="pd_v8" class="pd_v8 has_more_img">
+    <Variant html={variantHtml} />
+  </div>
+</div>
