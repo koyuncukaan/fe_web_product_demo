@@ -5,7 +5,7 @@ import Gallery from "../components/Gallery.astro";
 let titleHtml = "";
 let galleryHtml = "";
 
-await fetch("http://localhost:5236/api/data")
+await fetch("http://localhost:5236/api/titleGallery")
   .then((res) => res.json())
   .then((data) => {
     titleHtml = data.title.html;
