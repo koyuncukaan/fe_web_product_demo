@@ -1,6 +1,6 @@
 ---
-import Title from "../components/Title.astro";
-import Gallery from "../components/Gallery.astro";
+import TitleComponent from "../components/TitleComponent.astro";
+import GalleryComponent from "../components/GalleryComponent.astro";
 
 let titleHtml = "";
 let galleryHtml = "";
@@ -15,9 +15,9 @@ await fetch("http://localhost:5236/api/titleGallery")
 
 <div class="rw_v8">
   <div id="pd_v8" class="pd_v8 has_more_img">
-    <Title html={titleHtml} />
+    <TitleComponent html={titleHtml} />
     <div id="PI_v8" class="pdi_v8 has_thumb">
-      <Gallery html={galleryHtml} />
+      <GalleryComponent html={galleryHtml} />
     </div>
   </div>
 </div>
