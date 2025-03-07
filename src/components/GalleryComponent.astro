@@ -1,11 +1,7 @@
 ---
-const { html, js } = Astro.props;
+const { html, galleryJs } = Astro.props;
 ---
 
-<script is:inline define:vars={{ js }}>
-  if (js) {
-    js.forEach((fnc) => window.globalScripts.push(fnc));
-  }
-</script>
+<script is:inline define:vars={{ galleryJs }}></script>
 
 <Fragment set:html={html} />

@@ -1,10 +1,10 @@
 ---
-const { html, js } = Astro.props;
+const { html, titleJs } = Astro.props;
 ---
 
-<script is:inline define:vars={{ js }}>
-  if (js) {
-    js.forEach((fnc) => window.globalScripts.push(fnc));
+<script is:inline define:vars={{ titleJs }}>
+  if (titleJs) {
+    titleJs.forEach((fnc) => window.globalScripts.push(fnc));
   }
 </script>
 
