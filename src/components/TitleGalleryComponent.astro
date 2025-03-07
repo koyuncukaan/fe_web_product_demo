@@ -3,21 +3,45 @@ import TitleComponent from "../components/TitleComponent.astro";
 import GalleryComponent from "../components/GalleryComponent.astro";
 
 let titleHtml = "";
+let titleJs = "";
+
 let galleryHtml = "";
+let galleryJs = "";
 
 await fetch("http://localhost:5236/api/titleGallery")
   .then((res) => res.json())
   .then((data) => {
     titleHtml = data.title.html;
+    titleJs = data.title.js;
+
     galleryHtml = data.gallery.html;
+    galleryJs = data.gallery.js;
   });
 ---
 
+<script is:inline>
+  // load all onload js scripts
+  if (!window.globalScripts) {
+    window.globalScripts = [];
+  }
+
+  setTimeout(() => {
+    const script = document.createElement("script");
+
+    Array.from(new Set(window.globalScripts)).forEach(
+      (s) => (script.innerHTML += s)
+    );
+
+    console.log(script.innerHTML);
+    document.body.appendChild(script);
+  }, 0);
+</script>
+
 <div class="rw_v8">
   <div id="pd_v8" class="pd_v8 has_more_img">
-    <TitleComponent html={titleHtml} />
+    <TitleComponent html={titleHtml} js={titleJs} />
     <div id="PI_v8" class="pdi_v8 has_thumb">
-      <GalleryComponent html={galleryHtml} />
+      <GalleryComponent html={galleryHtml} js={galleryJs} />
     </div>
   </div>
 </div>
