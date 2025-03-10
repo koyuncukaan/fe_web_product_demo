@@ -22,3 +22,12 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+#common
+/.cache
+.vscode
+.vs
+/coverage
+/testResults
+/src/constants/hpp.ts
+/src/uikit/
