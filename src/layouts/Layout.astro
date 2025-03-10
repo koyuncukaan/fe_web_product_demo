@@ -1,33 +1,31 @@
 ---
-import HppStatic from "../components/staticComponents/hppStatic/hppStatic";
-import { getEnvVariable } from "../helpers/helper";
+import HppStatic from '../components/staticComponents/hppStatic/hppStatic';
+import { getEnvVariable } from '../helpers/helper';
 
 //TODO
 const timeStampForStaticFiles = new Date().getTime();
-const packageName = "mobilep";
+const packageName = 'mobilep';
 const on_appakce = false;
 const pageData = {
   pageInfo: {
-    type: "p",
+    type: 'p',
   },
 };
 
 let style;
-if (getEnvVariable("SELF__RUNNING_ENV") === "dev") {
+if (getEnvVariable('SELF__RUNNING_ENV') === 'dev') {
   style = `https://www.akakce.dev/include/aa/styles/_pcss.v9.asp?minifyrequest=0&${packageName}&${timeStampForStaticFiles}`;
 } else {
   style =
-    getEnvVariable("API_URI__AKAMAI_STATIC_FILE_SERVICE_ROOT") +
-    `styles/${packageName}.css?${timeStampForStaticFiles}`;
+    getEnvVariable('API_URI__AKAMAI_STATIC_FILE_SERVICE_ROOT') + `styles/${packageName}.css?${timeStampForStaticFiles}`;
 }
 
 let script;
-if (getEnvVariable("SELF__RUNNING_ENV") === "dev") {
+if (getEnvVariable('SELF__RUNNING_ENV') === 'dev') {
   script = `https://www.akakce.dev/include/aa/scripts/_pjs.v9.asp?minifyrequest=0&${packageName}&${timeStampForStaticFiles}`;
 } else {
   script =
-    getEnvVariable("API_URI__AKAMAI_STATIC_FILE_SERVICE_ROOT") +
-    `scripts/${packageName}.js?${timeStampForStaticFiles}`;
+    getEnvVariable('API_URI__AKAMAI_STATIC_FILE_SERVICE_ROOT') + `scripts/${packageName}.js?${timeStampForStaticFiles}`;
 }
 ---
 
@@ -36,23 +34,14 @@ if (getEnvVariable("SELF__RUNNING_ENV") === "dev") {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro Basics</title>
-    <HppStatic useInline={"true"} />
+    <HppStatic useInline={'true'} />
+    <link rel="stylesheet" href={style} />
   </head>
   <body>
     <slot />
     <script type="text/javascript" src={script}></script>
-    <link rel="stylesheet" href={style} />
   </body>
 </html>
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-  }
-</style>
