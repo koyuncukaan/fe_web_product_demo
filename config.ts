@@ -1,0 +1,15 @@
+export let env_obj = {
+    WEB_URI__AKAKCE_LEGACY: '',
+    API_URI__AKAMAI_IMAGE_SERVICE_ROOT_: '',
+    API_URI__AKAKCE_LEGACY: '',
+    API_URI__API_AUTOCOMPLETE: '',
+    API_URI__AKAMAI_STATIC_FILE_SERVICE_ROOT: '',
+    SELF__BASE_URL: '',
+    SELF__USEINLINE_HPP: '',
+    SELF__T_GIF_: '',
+    SELF__RUNNING_ENV: 'dev',
+    SELF__API_URI: '',
+    API_URI__AA_DL: '',
+    API_URI__AA_DL_SSR: '',
+    API_URI__AA_USER: '',
+  };
